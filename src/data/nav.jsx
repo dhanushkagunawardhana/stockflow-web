@@ -10,7 +10,7 @@ export const sidebarNav = [
     label: "Stock Summary",
     icon: BarChart3,
     to: "/stock-summary",
-    activePaths: ["/", "stock-summary"],
+    activePaths: ["/", "/stock-summary"],
   },
   {
     label: "Stock Requests",
