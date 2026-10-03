@@ -1,11 +1,24 @@
-import React from 'react'
+import React from "react";
 
-import DefaultLayout from '@/layouts/DefaultLayout'
+import DefaultLayout from "@/layouts/DefaultLayout";
+
+import ReturnApprovalsTable from "./com/ReturnApprovalsTable";
 
 function ReturnApprovals() {
   return (
-    <DefaultLayout>ReturnApprovals</DefaultLayout>
-  )
+    <DefaultLayout>
+      <div className="mx-auto w-full max-w-6xl space-y-5">
+        <div>
+          <h1 className="text-lg font-semibold">Return Approvals</h1>
+          <p className="mt-1 text-sm text-muted-foreground">
+            2 returns pending warehouse verification
+          </p>
+        </div>
+
+        <ReturnApprovalsTable />
+      </div>
+    </DefaultLayout>
+  );
 }
 
-export default ReturnApprovals
+export default ReturnApprovals;
