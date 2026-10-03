@@ -1,21 +1,25 @@
 import { useState } from "react";
+import { NavLink, useNavigate } from "react-router-dom";
+
+import { Eye, EyeOff, ChartColumn } from "lucide-react";
+
+import AuthLayout from "@/layouts/AuthLayout";
 
 import { Button } from "@/components/ui/button";
 import {
   Card,
-  CardAction,
   CardContent,
   CardDescription,
-  CardFooter,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 
-import AuthLayout from "../../layouts/AuthLayout";
-
 function Login() {
+  const navigate = useNavigate();
+
+  const [showPassword, setShowPassword] = useState(false);
   const [form, setForm] = useState({
     email: "",
     password: "",
@@ -31,61 +35,110 @@ function Login() {
   }
 
   function handleSubmit(event) {
-    alert(JSON.stringify(form));
+    event.preventDefault();
+
+    console.log("Login form:", form);
+
+    // Replace this with your API login request.
+    // If login succeeds:
+    navigate("/");
   }
 
   return (
     <AuthLayout>
-      <Card className="w-full max-w-sm">
-        <CardHeader className="text-center">
-          <CardTitle className="text-2xl">Login</CardTitle>
-          <CardDescription>
-            Enter your email below to login to your account
-          </CardDescription>
-        </CardHeader>
-        <CardContent>
-          <form onSubmit={handleSubmit}>
-            <div className="flex flex-col gap-6">
-              <div className="grid gap-2">
+      <div className="w-full max-w-md px-4">
+        <NavLink to="/" className="mb-6 flex items-center justify-center gap-2">
+          <span className="flex size-10 items-center justify-center rounded-lg bg-orange-500 text-white">
+            <ChartColumn className="size-5" />
+          </span>
+
+          <div>
+            <p className="text-xl font-semibold leading-none text-foreground">
+              StockFlow
+            </p>
+            <p className="mt-1 text-xs text-muted-foreground">
+              Distribution System
+            </p>
+          </div>
+        </NavLink>
+
+        <Card>
+          <CardHeader className="text-center">
+            <CardTitle className="text-2xl">Login</CardTitle>
+
+            <CardDescription>
+              Enter your credentials to access your account
+            </CardDescription>
+          </CardHeader>
+
+          <CardContent>
+            <form onSubmit={handleSubmit} className="space-y-5">
+              <div className="space-y-2">
                 <Label htmlFor="email">Email</Label>
+
                 <Input
                   id="email"
                   name="email"
                   type="email"
-                  placeholder="m@example.com"
+                  value={form.email}
                   onChange={handleChange}
+                  placeholder="manager@stockflow.com"
+                  autoComplete="email"
                   required
                 />
               </div>
-              <div className="grid gap-2">
-                <div className="flex items-center">
-                  <Label htmlFor="password">Password</Label>
-                  <a
-                    href="#"
-                    className="ml-auto inline-block text-sm underline-offset-4 hover:underline"
-                  >
-                    Forgot your password?
-                  </a>
-                </div>
-                <Input
-                  id="password"
-                  name="password"
-                  type="password"
-                  required
-                  onChange={handleChange}
-                />
-              </div>
-            </div>
 
-            <Button
-              type="submit"
-              className="w-full bg-orange-500 hover:bg-amber-600 mt-5"
-            >
-              Login
-            </Button>
-          </form>
-        </CardContent>
-      </Card>
+              <div className="space-y-2">
+                <div className="flex items-center justify-between">
+                  <Label htmlFor="password">Password</Label>
+
+                  <NavLink
+                    to="/forgot-password"
+                    className="text-xs font-medium text-orange-600 hover:underline"
+                  >
+                    Forgot password?
+                  </NavLink>
+                </div>
+
+                <div className="relative">
+                  <Input
+                    id="password"
+                    name="password"
+                    type={showPassword ? "text" : "password"}
+                    value={form.password}
+                    onChange={handleChange}
+                    placeholder="Enter your password"
+                    autoComplete="current-password"
+                    className="pr-10"
+                    required
+                  />
+
+                  <Button
+                    type="button"
+                    variant="ghost"
+                    size="icon-sm"
+                    className="absolute right-1 top-1/2 -translate-y-1/2"
+                    onClick={() => setShowPassword((current) => !current)}
+                  >
+                    {showPassword ? (
+                      <EyeOff className="size-4" />
+                    ) : (
+                      <Eye className="size-4" />
+                    )}
+                  </Button>
+                </div>
+              </div>
+
+              <Button
+                type="submit"
+                className="w-full bg-orange-500 hover:bg-orange-600"
+              >
+                Sign in
+              </Button>
+            </form>
+          </CardContent>
+        </Card>
+      </div>
     </AuthLayout>
   );
 }
