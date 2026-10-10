@@ -58,7 +58,7 @@ export const routes = [
   },
   {
     title: "Run History",
-    route: "/fdo/history",
+    route: "/fdo/run-history",
     page: <Pages.FDORunHistory />,
   },
 ];
