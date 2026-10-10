@@ -1,12 +1,12 @@
 import React from "react";
 
-import DefaultLayout from "@/layouts/DefaultLayout";
+import SMLayout from "@/layouts/SMLayout";
 
 import ReturnApprovalsTable from "./com/ReturnApprovalsTable";
 
 function ReturnApprovals() {
   return (
-    <DefaultLayout>
+    <SMLayout>
       <div className="mx-auto w-full max-w-6xl space-y-5">
         <div>
           <h1 className="text-lg font-semibold">Return Approvals</h1>
@@ -17,7 +17,7 @@ function ReturnApprovals() {
 
         <ReturnApprovalsTable />
       </div>
-    </DefaultLayout>
+    </SMLayout>
   );
 }
 

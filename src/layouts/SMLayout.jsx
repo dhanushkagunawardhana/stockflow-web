@@ -3,10 +3,12 @@ import React from "react";
 import Topnav from "../components/top-nav/TopNav";
 import Sidebar from "../components/sidebar/Sidebar";
 
-function DefaultLayout({ children }) {
+import { sidebarNavSM, sidebarProfileSM, sidebarHeaderSM } from "@/data/sidebar/sidebar_nav_sm";
+
+function SMLayout({ children }) {
   return (
     <div className="flex flex-row min-h-screen">
-      <Sidebar />
+      <Sidebar nav={sidebarNavSM} profile={sidebarProfileSM} header={sidebarHeaderSM} />
 
       <div className="flex-1 bg-gray-100">
         <Topnav />
@@ -17,4 +19,4 @@ function DefaultLayout({ children }) {
   );
 }
 
-export default DefaultLayout;
+export default SMLayout;

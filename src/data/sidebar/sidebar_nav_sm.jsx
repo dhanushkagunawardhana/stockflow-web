@@ -5,7 +5,7 @@ import {
   RotateCcw,
 } from "lucide-react";
 
-export const sidebarNav = [
+export const sidebarNavSM = [
   {
     label: "Stock Summary",
     icon: BarChart3,
@@ -26,3 +26,15 @@ export const sidebarNav = [
     to: "/return-approvals",
   },
 ];
+
+export const sidebarProfileSM = {
+  name: "Amila Perera",
+  role: "Stock Manager",
+  detail: "Colombo Central Warehouse",
+};
+
+export const sidebarHeaderSM = {
+  title: "StockFlow",
+  subtitle: "Distribution System",
+};
+

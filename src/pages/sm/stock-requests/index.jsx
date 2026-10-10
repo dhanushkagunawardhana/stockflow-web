@@ -1,6 +1,6 @@
 import React from "react";
 
-import DefaultLayout from "@/layouts/DefaultLayout";
+import SMLayout from "@/layouts/SMLayout";
 
 import { pendingStockRequests } from "@/data/mock/stock-requests";
 
@@ -8,7 +8,7 @@ import StockRequestsTable from "./com/StockRequestsTable";
 
 function StockRequests() {
   return (
-    <DefaultLayout>
+    <SMLayout>
       <div className="mx-auto w-full max-w-6xl space-y-5">
         <div>
           <h1 className="text-lg font-semibold">Stock Requests</h1>
@@ -19,7 +19,7 @@ function StockRequests() {
 
         <StockRequestsTable />
       </div>
-    </DefaultLayout>
+    </SMLayout>
   );
 }
 

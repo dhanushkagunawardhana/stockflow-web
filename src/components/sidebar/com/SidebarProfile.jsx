@@ -1,6 +1,6 @@
 import { UserRound } from "lucide-react";
 
-function SidebarProfile() {
+function SidebarProfile({ profile }) {
   return (
     <div className="px-4 py-4 mt-auto border-t border-border">
       <div className="flex gap-3 items-center">
@@ -10,13 +10,13 @@ function SidebarProfile() {
 
         <div className="leading-tight">
           <div className="truncate text-xs font-medium text-foreground">
-            Dhanushka Gunawardhana
+            {profile.name}
           </div>
           <div className="truncate mt-0.5 text-[11px] text-muted-foreground">
-            Stock Manager
+            {profile.role}
           </div>
           <div className="truncate mt-0.5 text-[10px] text-muted-foreground">
-            Colombo Central Warehouse
+            {profile.detail}
           </div>
         </div>
       </div>
