@@ -27,12 +27,6 @@ export const sidebarNavSM = [
   },
 ];
 
-export const sidebarProfileSM = {
-  name: "Amila Perera",
-  role: "Stock Manager",
-  detail: "Colombo Central Warehouse",
-};
-
 export const sidebarHeaderSM = {
   title: "StockFlow",
   subtitle: "Distribution System",
